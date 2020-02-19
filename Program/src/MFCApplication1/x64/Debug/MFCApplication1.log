@@ -1,0 +1,29 @@
+﻿  stdafx.cpp
+  CvvImage.cpp
+c:\opencv\opencv\build\include\opencv2\flann\logger.h(66): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(208): note: 参见“fopen”的声明
+  MFCApplication1.cpp
+c:\opencv\opencv\build\include\opencv2\flann\logger.h(66): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(208): note: 参见“fopen”的声明
+  MFCApplication1Dlg.cpp
+c:\opencv\opencv\build\include\opencv2\flann\logger.h(66): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(208): note: 参见“fopen”的声明
+c:\users\seugraph\desktop\mfcapplication\mfcapplication\mfcapplication1\mfcapplication1dlg.cpp(303): warning C4244: “=”: 从“intptr_t”转换到“long”，可能丢失数据
+c:\users\seugraph\desktop\mfcapplication\mfcapplication\mfcapplication1\mfcapplication1dlg.cpp(299): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note: 参见“strcpy”的声明
+c:\users\seugraph\desktop\mfcapplication\mfcapplication\mfcapplication1\mfcapplication1dlg.cpp(300): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(90): note: 参见“strcat”的声明
+c:\users\seugraph\desktop\mfcapplication\mfcapplication\mfcapplication1\mfcapplication1dlg.cpp(301): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(90): note: 参见“strcat”的声明
+c:\users\seugraph\desktop\mfcapplication\mfcapplication\mfcapplication1\mfcapplication1dlg.cpp(317): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note: 参见“strcpy”的声明
+c:\users\seugraph\desktop\mfcapplication\mfcapplication\mfcapplication1\mfcapplication1dlg.cpp(318): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(90): note: 参见“strcat”的声明
+c:\users\seugraph\desktop\mfcapplication\mfcapplication\mfcapplication1\mfcapplication1dlg.cpp(319): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(90): note: 参见“strcat”的声明
+c:\users\seugraph\desktop\mfcapplication\mfcapplication\mfcapplication1\mfcapplication1dlg.cpp(293): warning C4101: “resultone”: 未引用的局部变量
+c:\users\seugraph\desktop\mfcapplication\mfcapplication\mfcapplication1\mfcapplication1dlg.cpp(431): warning C4477: “sprintf_s”: 格式字符串“%s”需要类型“char *”的参数，但可变参数 3 拥有了类型“CString”
+c:\users\seugraph\desktop\mfcapplication\mfcapplication\mfcapplication1\mfcapplication1dlg.cpp(901): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note: 参见“strcpy”的声明
+  正在生成代码...
+  MFCApplication1.vcxproj -> C:\Users\seugraph\Desktop\MFCApplication\MFCApplication\x64\Debug\MFCApplication1.exe

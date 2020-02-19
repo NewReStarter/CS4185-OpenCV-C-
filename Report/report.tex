@@ -1,0 +1,149 @@
+\documentclass[12pt]{article}
+\usepackage[margin=0.75in]{geometry}
+\geometry{a4paper}
+\usepackage[T1]{fontenc} % Support Icelandic Characters
+\usepackage[utf8]{inputenc} % Support Icelandic Characters
+\usepackage{graphicx} % Support for including images
+\usepackage{hyperref} % Support for hyperlinks
+\usepackage[english]{babel}
+\setlength\parindent{0pt}
+
+%------------------------------------------------------------------
+% TITLE
+%------------------------------------------------------------------
+\title{
+\centerline{\includegraphics[width=80mm]{CityU_CS_logo_2.jpg}}
+\vspace{0.5 cm}
+CS4185 Multimedia Technologies and Applications\\
+Course Project
+\large  \\
+  }
+
+\author{
+    GAO Ziliu\\
+    \texttt{54381356}
+}
+
+\date{17. Nov 2019}
+
+%------------------------------------------------------------------
+% DOCUMENT START HERE
+%------------------------------------------------------------------
+\begin{document}
+
+\maketitle
+\clearpage
+
+
+\section*{Summary}
+In a general sense, this program consists of three main modules, a graphic user interface(GUI) implemented by Microsoft Foundation Classes(MFC) a backend logic module interact with OpenCV utilities and a MFC controller that draw the UI and invoke the utilities we implemented in the backend.\\
+
+To be more specific, each module consists of two files, header file and source file. \textit{CvvImage} module are the computer vision methods we implemented to conduct the required tasks. \textit{MFCApplication1Dlg} module is the MFC controller and the {MFCApplication1} module is where we initialize our MFC instance and the managers. Inside \textit{MFCApplication1Dlg.cpp} , function \textit{imageretrieval()} are responsible to invoke OpenCV methods to finish task 1 and \textit{objectdetection()}  are responsible for task 2.\\
+
+\section*{Features}
+\subsection*{Overview}
+We employ C++ Object Oriented Programming(OOP) technique. We encapsulate every utilities into a C++ object and use the MFC singleton to as our main program. We further use  the separation of interface and implementation. We declare the interface in the header files and implement them in the source files. This makes the structure of my program more clear, which avoids make  everything in-line, and ease the build of the program, allowing separate compilation.\\
+
+\subsection*{Image Retrieval}
+\begin{itemize}
+  \item RGB to HSV
+  \item HSV histogram
+  \item SIFT local feature extraction
+  \item Gaussian filter
+  \item Hough transform
+\end{itemize}
+
+The first thought is use HSV color range space to calculate the histogram. It's more accurate than RGB or GRAY color range space since HSV is closer to human vision. Therefore we first transform RGB to HSV and separate channels and keep H channel and S channel to calculate the histogram graph. Different values of bins in the histogram are experimented during the implementation. At last 15 are used. Till now, the average precision and recall are both 0.3.\\
+
+Using SFIT to extract local features  is considered as well. However, the result is not good.\\
+
+Then we use hough transform to find the circle. This is because all footballs are of the shape of circle. Considering Houghcircles algorithm are sensitive to the noise, we apply a Gaussian Filter to smooth the picture.\\
+
+Finally we notice that football are all of black and white. Pixels of  black and white will have very close RGB value. We further select the circle base on this assumption. \textbf{We reach the average accuracy 0.6 and recall 0.6}\\
+
+\subsection*{Object Detection}
+\begin{itemize}
+  \item Hough transform
+  \item sliding window
+\end{itemize}
+
+This task looks very similar to the template matching task. Naturally the first thought will be use template matching method. Then we find that template matching functions of OpenCV is not suitable for resizable(object of different sizes). However, the size of the football is very different in dataset2.\\
+
+Then we consider Hough transform again. We divide top-10 into 8-2. The first eight will keep the result of sliding window while the last two will use the result of houghcircles. This way we improve the IOU to a great extent. \textbf{The accuracy is 0.8 and IOU is 0.63 at last}.\\
+
+\subsection*{Screenshot}
+
+\includegraphics[width=75mm]{screenshot1.jpeg}
+\includegraphics[width=75mm]{screenshot2.png}
+
+\section*{Result}
+
+\subsection*{Image Retrieval}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline  
+filename & baseline precision & mymodel percison & baseline recall & mymodel recall\\
+\hline
+990 & 0.10 & 0.80 & 0.10 & 0.80\\
+\hline
+991 & 0.20 & 0.60 & 0.20 & 0.60\\
+\hline
+992 & 0.10 & 0.50 & 0.10 & 0.50\\
+\hline
+993 & 0.20 & 0.60 & 0.20 & 0.60\\
+\hline
+994 & 0.10 & 0.30 & 0.10 & 0.30\\
+\hline
+995 & 0.10 & 0.70 & 0.10 & 0.70\\
+\hline
+996 & 0.10 & 0.80 & 0.10 & 0.80\\
+\hline
+997 & 0.20 & 0.70 & 0.20 & 0.70\\
+\hline
+998 & 0.10 & 0.60 & 0.10 & 0.60\\
+\hline
+999 & 0.30 & 0.40 & 0.30 & 0.40\\
+\hline
+\end{tabular}
+\end{center}
+
+\textbf{The average accuracy 0.6 and the average recall is 0.6.}
+
+\subsection*{Object Detection}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+filename & baseline best IOU & mymodel best IoU & mymodel average best IoU \\
+\hline
+1 & 0.491859 & 0.660779 & 0.602314 \\
+\hline
+2 & 0.033624 & 0.890244 & 0.602314 \\
+\hline
+3 & 0 & 0.953065 & 0.602314\\
+\hline
+4 & 0 & 0.596737 &  0.775206\\
+\hline
+5 & 0 & 0.661883 & 0.752542\\
+\hline
+6 & 0 & 0.652367 & 0.735846\\
+\hline
+7 & 0.478485 & 0.789474 &  0.743507\\
+\hline
+8 &  0.377778 & 0 & 0\\
+\hline
+9 & 0 & 0.818594 & 0.669238\\
+\hline
+10 & 0 & 0 & 0\\
+\hline
+
+\end{tabular}
+\end{center}
+\textbf{The accuracy is 0.8 and the average IoU is 0.63.}
+
+\section*{Task Distribution}
+\textbf{I hereby declare that I finish this project all on my own.}
+
+
+\end{document}
